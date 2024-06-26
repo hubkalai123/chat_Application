@@ -1,0 +1,51 @@
+*{
+    padding:0%;
+    margin: 0%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.login_base_container{
+    width: 1486px;
+    height: 865px;
+    background-color: #E3E3E3;
+    position: relative;
+    top:25px;
+    left: 13rem;
+
+}
+.container_default{
+    border: 10px solid black; 
+    width: 1100px;
+    height: 650px;
+    position: absolute;
+    top: 10%;
+    left: 12%;
+}
+.Login_container{
+    background-image: url("https://webandcrafts.com/_next/image?url=%2Fimage%2Fmdx%2Fmdx-desktop-frame.png&w=1920&q=90");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1100px;
+    height: 650px;
+    position: absolute;
+}
+
+.pepole_communication{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+
+.whiteperson > img{
+    position: absolute;
+    top: -8rem;
+    left: -10rem;
+    width: 95%;
+}
+.blue_person > img{
+     position: absolute;
+     top: -5rem;
+     right: -9rem;
+     width: 95%;
+}
