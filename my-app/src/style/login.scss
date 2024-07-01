@@ -39,13 +39,30 @@
 
 .whiteperson > img{
     position: absolute;
-    top: -8rem;
+    top: -7rem;
     left: -10rem;
     width: 95%;
 }
 .blue_person > img{
      position: absolute;
      top: -5rem;
-     right: -9rem;
+     right: -7rem;
      width: 95%;
+}
+
+.login_button{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 200px;
+    height: 50px;
+}
+
+.login_btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1rem;
+    background-color: rgb(210, 189, 189);
+    cursor: pointer;
 }

@@ -12,8 +12,8 @@ interface PublicLayoutProps {
 
 const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
   const router = useRouter();
-  const { isAuthenticated } = useAppSelector((state:RootState) => state.auth)
-  console.log("isssAuth", isAuthenticated);
+  const { isAuthenticated } = useAppSelector((state:RootState) => state.auth);
+
   if (isAuthenticated) {
     router.push(ROUTESPATH.CHATAPP);
   }
