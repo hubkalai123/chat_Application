@@ -2,28 +2,45 @@
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { login } from '@/store/reducers/Authreducers';
-import { ROUTESPATH } from '@/utils/constant';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useGsapEffect } from '@/hooks/gsap';
+import gsap from 'gsap';
+import LoginForm from './LoginForm';
+import '../../style/login.scss'
+
 export default function LoginPage() {
-  const dispatch = useDispatch();
-  const router = useRouter();
+
+  const [isFormShow,issetFormShow] = useState(false);
+
+  const containerRef = useRef(null);
 
   useEffect(()=>{
-    Aos.init({duration:2000});
+    Aos.init({duration:3000});
   },[]);
 
+  useGsapEffect();
+  
+  
+  
   const handleLogin = () => {
-    dispatch(login(true));
-    router.push(ROUTESPATH.CHATAPP);
+    const timeline = gsap.timeline();
+    timeline.to(containerRef.current, { opacity: 0, duration: 5, onComplete: () => {
+    }});
+    gsap.effects.fade(containerRef.current);
+    
+    setTimeout(() => {
+      issetFormShow(true);
+      gsap.effects.fade(containerRef.current);
+    }, 2000); 
   };
 
   return (
   <div className='login_base_container'>
-    <div className='container_default'>
+    <div className='container_default' ref={containerRef}>
       <div className='Login_container'>
           <div className='pepole_communication'>
             <div className='whiteperson'>
@@ -34,10 +51,11 @@ export default function LoginPage() {
             </div>
           </div>
           <div className='login_button'>
-              <button className='login_btn'>Login</button>
+              <button className='login_btn' onClick={handleLogin}>Login</button>
           </div>
       </div>
     </div>
+    {isFormShow && <LoginForm />}
   </div>
   );
 }
