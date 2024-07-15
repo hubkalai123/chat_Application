@@ -1,31 +1,21 @@
 'use client';
-import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/navigation';
-import { login } from '@/store/reducers/Authreducers';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import { useGsapEffect } from '@/hooks/gsap';
 import gsap from 'gsap';
 import LoginForm from './LoginForm';
 import '../../style/login.scss'
+import Authentication from './Authentication';
 
 export default function LoginPage() {
-
+  //Image hider
   const [isFormShow,issetFormShow] = useState(false);
-
+  //GSAP Container Change
   const containerRef = useRef(null);
-
-  useEffect(()=>{
-    Aos.init({duration:3000});
-  },[]);
-
+  //GSAP Effect
   useGsapEffect();
   
-  
-  
+  //based GSAP Functionality it will move the conatainer open the Form.
   const handleLogin = () => {
     const timeline = gsap.timeline();
     timeline.to(containerRef.current, { opacity: 0, duration: 5, onComplete: () => {
@@ -44,10 +34,10 @@ export default function LoginPage() {
       <div className='Login_container'>
           <div className='pepole_communication'>
             <div className='whiteperson'>
-            <img src='https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2Fmockup_people1_e915aa3772.png&w=1920&q=90' alt='pepole_yellow'  id='white_man_speak' data-aos="fade-right"/>
+            <Image src='https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2Fmockup_people1_e915aa3772.png&w=1920&q=90' alt='pepole_yellow'  id='white_man_speak' data-aos="fade-right" width={1024} height={881}/>
             </div>
             <div className='blue_person'>
-            <img src='https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2Fmockup_people2_f1e2f3d807.png&w=1920&q=90' alt='pepole_yellow' data-aos="fade-left" />
+            <Image src='https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2Fmockup_people2_f1e2f3d807.png&w=1920&q=90' alt='pepole_yellow' data-aos="fade-left" width={1024} height={881}/>
             </div>
           </div>
           <div className='login_button'>
@@ -55,7 +45,7 @@ export default function LoginPage() {
           </div>
       </div>
     </div>
-    {isFormShow && <LoginForm />}
+    {isFormShow && <Authentication />}
   </div>
   );
 }
