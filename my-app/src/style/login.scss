@@ -105,13 +105,7 @@
     cursor: pointer;    
 }
 
-.inputClass {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
+
 .chnaging-conatiner{
    position: relative;   
 }
@@ -129,40 +123,88 @@
     align-items: center;
     flex-direction: column;
 }
+/* Container for each form control */
+.form_control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
 
+/* Styling for the label */
+.form_control label {
+  margin-bottom: 2px;
+  font-weight: bold;
+  color: #333;
+}
 
+/* Styling for the input */
 
+.inputClass {
+  padding: 8px 40px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Input focus state */
+.inputClass:focus {
+  border-color: #007BFF;
+  outline: none;
+}
 .profile-picture-container {
-    position: relative;
-    display: inline-block;
-    width: 100px; /* Adjust the size as needed */
-    height: 100px; /* Adjust the size as needed */
-  }
-  
-  .profile-picture {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ccc; /* Optional: adds a border around the image */
-  }
-  
-  .camera-icon {
-    position: absolute;
-    bottom: 5px; /* Adjust the position as needed */
-    right: 5px; /* Adjust the position as needed */
-    width: 20px; /* Adjust the size as needed */
-    height: 20px; /* Adjust the size as needed */
-    background-color: white; /* Optional: adds a background color */
-    border-radius: 50%; /* Makes the icon background a circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .camera-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  width: 100px; 
+  height: 100px; 
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.upload_btn {
+  display: flex;
+  align-items: center;
+}
+
+
+.camera-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px; 
+  width: 20px; 
+  height: 20px; 
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.uploading_img_btn {
+  padding: 5px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.uploading_img_btn:hover {
+  background-color: #0056b3;
+}

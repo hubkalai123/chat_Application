@@ -3,7 +3,6 @@ import Image from 'next/image';
 import {  useRef, useState } from 'react';
 import { useGsapEffect } from '@/hooks/gsap';
 import gsap from 'gsap';
-import LoginForm from './LoginForm';
 import '../../style/login.scss'
 import Authentication from './Authentication';
 

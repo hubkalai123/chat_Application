@@ -16,13 +16,17 @@ const SignupForm = () => {
               <div className="camera-icon">
                 <Image src={camera} alt="Camera Icon" />
               </div>
+              <div className='upload_btn'>
+                <input type='file' style={{display:"none"}}/>
+                <button className='uploading_img_btn'>Upload</button>
+              </div>
             </div>
             <div className='form_control'>
-              <label htmlFor='username'>First Name:- </label>
+              <label htmlFor='firstname'>First Name:- </label>
               <input type="text" className='inputClass' name="firstname" id="firstname" />
             </div>
             <div className='form_control'>
-              <label htmlFor='username'>Last Name:- </label>
+              <label htmlFor='lastname'>Last Name:- </label>
               <input type="text" className='inputClass' name="lastname" id="lastname" />
             </div>
             <div className='form_control'>
@@ -30,7 +34,7 @@ const SignupForm = () => {
               <input type="text" className='inputClass' name="username" id="username" />
             </div>
             <div className='form_control'>
-              <label htmlFor='username'>Email:- </label>
+              <label htmlFor='email'>Email:- </label>
               <input type="email" className='inputClass' name="email" id="email" />
             </div>
             <div className='form_control'>
