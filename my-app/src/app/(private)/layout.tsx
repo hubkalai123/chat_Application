@@ -5,16 +5,21 @@ import { redirect } from 'next/navigation';
 import { ROUTESPATH } from '@/utils/constant';
 import { useAppSelector } from '@/store/hook';
 import { RootState } from '@/store/store';
+import { useRouter } from 'next/navigation';
+
 interface PublicLayoutProps {
   readonly children: React.ReactNode;
 }
 
 const PrivateLayout: React.FC<PublicLayoutProps> = ({ children }) => {
-    const { isAuthenticated } = useAppSelector((state:RootState) => state.auth)
+    const { istoken } = useAppSelector((state:RootState) => state.auth)
+    const router = useRouter();
 
 
-  if (!isAuthenticated) {
-    redirect(ROUTESPATH.LOGIN)
+  if (!istoken) {
+    router.push(ROUTESPATH.LOGIN)
+  }else{
+    router.push(ROUTESPATH.CHATAPP)
   }
   
   return (

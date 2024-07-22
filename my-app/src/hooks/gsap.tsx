@@ -15,3 +15,13 @@ export const useGsapEffect = () => {
         })
     },[])
 }
+
+// const timeline = gsap.timeline();
+// timeline.to(containerRef.current, { opacity: 0, duration: 5, onComplete: () => {
+// }});
+// gsap.effects.fade(containerRef.current);
+
+// setTimeout(() => {
+//   issetFormShow(true);
+//   gsap.effects.fade(containerRef.current);
+// }, 2000); 

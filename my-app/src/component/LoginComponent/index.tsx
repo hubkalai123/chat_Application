@@ -1,35 +1,34 @@
 'use client';
 import Image from 'next/image';
-import {  useRef, useState } from 'react';
-import { useGsapEffect } from '@/hooks/gsap';
-import gsap from 'gsap';
 import '../../style/login.scss'
-import Authentication from './Authentication';
-
+import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { signInWithPopup,signInWithRedirect } from 'firebase/auth';
+import { auth, provider } from '../../hooks/firebase';
+import { useAppDispatch } from '@/store/hook';
+import * as Authreducer from '@/store/reducers/Authreducers';
 export default function LoginPage() {
-  //Image hider
-  const [isFormShow,issetFormShow] = useState(false);
-  //GSAP Container Change
-  const containerRef = useRef(null);
-  //GSAP Effect
-  useGsapEffect();
-  
-  //based GSAP Functionality it will move the conatainer open the Form.
+  const dispatch = useAppDispatch();
+  //based Google Login Functionality it will move the conatainer open the Form.
   const handleLogin = () => {
-    const timeline = gsap.timeline();
-    timeline.to(containerRef.current, { opacity: 0, duration: 5, onComplete: () => {
-    }});
-    gsap.effects.fade(containerRef.current);
-    
-    setTimeout(() => {
-      issetFormShow(true);
-      gsap.effects.fade(containerRef.current);
-    }, 2000); 
-  };
+    signInWithPopup(auth, provider).then((result) => {
+      if(result)
+      {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        if(credential)
+        {
+          const token = credential.accessToken;
+          dispatch(Authreducer.login({token}));
+          dispatch(Authreducer.setCurrentuser(result.user));
+        } 
+      }
+    }).catch((error) => {
+      console.log("Error", error);
+    })
+  }; 
 
   return (
   <div className='login_base_container'>
-    <div className='container_default' ref={containerRef}>
+    <div className='container_default'>
       <div className='Login_container'>
           <div className='pepole_communication'>
             <div className='whiteperson'>
@@ -44,7 +43,7 @@ export default function LoginPage() {
           </div>
       </div>
     </div>
-    {isFormShow && <Authentication />}
+    {/* {isFormShow && <Authentication />} */}
   </div>
   );
 }

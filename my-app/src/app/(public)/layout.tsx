@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { escape } from 'querystring';
 
 interface PublicLayoutProps {
   readonly children: React.ReactNode;
@@ -14,14 +15,16 @@ interface PublicLayoutProps {
 
 const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
   const router = useRouter();
-  const { isAuthenticated } = useAppSelector((state:RootState) => state.auth);
+  const { istoken } = useAppSelector((state:RootState) => state.auth);
 
   useEffect(()=>{
     Aos.init({duration:3000});
   },[]);
 
-  if (isAuthenticated) {
+  if (istoken) {
     router.push(ROUTESPATH.CHATAPP);
+  }else{
+    router.push(ROUTESPATH.LOGIN)
   }
   
   return (

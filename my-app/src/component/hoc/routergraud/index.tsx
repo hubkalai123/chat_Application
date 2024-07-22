@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useAppSelector } from "@/store/hook";
 
 export const RouterGuard = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated } = useAppSelector((state: RootState) => state.auth);
+  const { istoken } = useAppSelector((state: RootState) => state.auth);
   const router = useRouter();
   const pathname = usePathname();
   const [authorized, setAuthorized] = useState(false);
@@ -16,7 +16,7 @@ export const RouterGuard = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     authCheck(pathname);
     window.scrollTo(0, 0);
-  }, [isAuthenticated, pathname]);
+  }, [istoken, pathname]);
 
   async function authCheck(url: string) {
    
