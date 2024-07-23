@@ -18,10 +18,7 @@ const PrivateLayout: React.FC<PublicLayoutProps> = ({ children }) => {
 
   if (!istoken) {
     router.push(ROUTESPATH.LOGIN)
-  }else{
-    router.push(ROUTESPATH.CHATAPP)
   }
-  
   return (
     <div>
       {children}

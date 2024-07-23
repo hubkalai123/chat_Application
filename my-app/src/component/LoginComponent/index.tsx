@@ -2,13 +2,18 @@
 import Image from 'next/image';
 import '../../style/login.scss'
 import { GoogleAuthProvider } from 'firebase/auth/web-extension';
-import { signInWithPopup,signInWithRedirect } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../hooks/firebase';
 import { useAppDispatch } from '@/store/hook';
 import * as Authreducer from '@/store/reducers/Authreducers';
+import { toast } from 'react-toastify'
+
 export default function LoginPage() {
   const dispatch = useAppDispatch();
-  //based Google Login Functionality it will move the conatainer open the Form.
+  //Real Time Database Firebase Functionality. For the Data in DB.
+
+  //Handle Functionality For the Google Login using the Firebase.
+
   const handleLogin = () => {
     signInWithPopup(auth, provider).then((result) => {
       if(result)
@@ -19,6 +24,7 @@ export default function LoginPage() {
           const token = credential.accessToken;
           dispatch(Authreducer.login({token}));
           dispatch(Authreducer.setCurrentuser(result.user));
+          toast.success('Login Successfully',{ position: 'top-right', autoClose: 5000 })
         } 
       }
     }).catch((error) => {

@@ -23,8 +23,6 @@ const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
 
   if (istoken) {
     router.push(ROUTESPATH.CHATAPP);
-  }else{
-    router.push(ROUTESPATH.LOGIN)
   }
   
   return (
