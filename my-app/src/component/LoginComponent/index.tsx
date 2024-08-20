@@ -10,7 +10,6 @@ import { toast } from 'react-toastify'
 
 export default function LoginPage() {
   const dispatch = useAppDispatch();
-  //Real Time Database Firebase Functionality. For the Data in DB.
 
   //Handle Functionality For the Google Login using the Firebase.
 

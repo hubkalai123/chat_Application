@@ -1,15 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import React, { use, useEffect } from 'react'
-import { addDoc, collection, doc, getDocs, query, setDoc, where } from "firebase/firestore"; 
+import React, { useEffect } from 'react'
+import { addDoc, collection,  getDocs, query,  where } from "firebase/firestore"; 
 import { db,auth } from '@/hooks/firebase';
 import { useAppSelector } from '@/store/hook';
 import { RootState } from '@/store/store';
 import { onAuthStateChanged } from 'firebase/auth';
+import HeaderComponent from './HeaderComponent';
+import '../../style/login.scss'
 
 const CHATAPP_COMPONENTS = () => {
   const {user} = useAppSelector((state:RootState ) => state.auth)
-
+  //Real Time Database Firebase Functionality. For the Data in DB.
   useEffect(() => {
     const uploadUserData = async () => {
       if (user) {
@@ -39,7 +41,11 @@ const CHATAPP_COMPONENTS = () => {
     return () => unsubscribe();
   }, [db, auth]);
   return (
-    <div>CHATAPP_COMPONENTS</div>
+    <div className='chat_container'>
+      <div className='chat_header_conatiner'>
+        <HeaderComponent />
+      </div>
+    </div>
   )
 }
 

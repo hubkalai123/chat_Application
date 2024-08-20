@@ -3,6 +3,11 @@
     margin: 0%;
     font-family: 'Times New Roman', Times, serif;
 }
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
 .login_base_container{
     width: 1486px;
     height: 865px;
@@ -207,4 +212,126 @@
 
 .uploading_img_btn:hover {
   background-color: #0056b3;
+}
+
+// Chat interface
+  .chat_container {
+    width: 90%;
+    height: 90%;
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 1px solid rgb(126, 126, 126);
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.chat_header_conatiner{
+  width: 100%;
+  height: 100%;
+  max-height: 80px;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid rgb(28, 18, 18,0.1);
+}
+
+.chat_header{
+  width: 30%;
+  border: 2px solid black;
+  display:  flex;
+  padding: 10px 15px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.current_user_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.current_user_profile > h3{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 100;
+}
+
+.add_other_user_container{
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.other_user_container{
+  width: 70%;
+  height: 100%;
+  max-height: 80px;
+  position: absolute;
+  top:0%;
+  left: 30%;
+  padding: 10px 15px;
+}
+
+
+.card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+.invite_container{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 20%;
+  top: 30%;
+}
+
+.invite_container > h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 100;
+  font-style: 15px;
+  margin-bottom: 10px;
+}
+
+.form_container {
+  display: flex;
+  align-items: center; /* Vertically center the input and button */
+  justify-content: space-between; /* Optional: Add space between input and icon */
+}
+
+.input_container {
+  flex: 1; /* Makes the input take up most of the row's space */
+  margin-right: 10px; /* Adds some space between the input and the icon */
+}
+
+.input_class {
+  width: 100%; /* Makes the input take up the full width of the container */
+  padding: 10px; /* Adds padding inside the input for better spacing */
+  border: 1px solid #ccc; /* Basic border styling */
+  border-radius: 4px; /* Rounded corners for the input */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's width and height */
+}
+
+.submit_icon {
+  display: flex;
+  align-items: center; /* Centers the icon vertically within the container */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  color: #29671e; /* Optional: Add color to the icon */
+  width: 40px; /* Optional: Adjust the width of the icon */
+  height: 40px;
 }
